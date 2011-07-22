@@ -1,0 +1,4 @@
+*.pyc
+media/uploads
+local_settings.py
+*.sqlite
