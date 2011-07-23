@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+{% load i18n tagging_tags planet_tags %}
+
+{% block extrameta %}
+    <meta name="DC.title" content="{{ site.name }}" />
+    <meta name="generator" content="django-planet http://github.com/matagus/django-planet/tree">
+{% endblock %}
+
+{% block extra_head %}
+    <link rel="alternate" type="application/rss+xml" title="{{ site.name }} - RSS 2.0 Feed" href="{% url planet_rss_feed %}" />
+{% endblock %}

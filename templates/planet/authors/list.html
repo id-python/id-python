@@ -1,0 +1,26 @@
+{% extends "planet/base.html" %}
+{% load i18n pagination_tags planet_tags %}
+
+{% block page_title %}{% trans 'Authors list' %} - {{ block.super }}{% endblock %}
+{% block extrameta %}
+    <meta name="DC.title" content="{% trans 'Authors list' %} - {{ site.name }}" />
+    <meta name="description" content="{% trans 'Authors list' %} - {{ site.name }}" />
+{% endblock %}
+
+{% block content %}
+<h2>{% trans "Authors" %}</h2>
+<ul class="author list">
+    {% autopaginate authors_list 20 %}
+    {% for author in authors_list %}
+        <li>
+            <h3>
+                <a class="nombre" href="{{ author.get_absolute_url }}" title="{% trans 'Author:' %} {{ author.name }}">
+                    {{ author.name }}
+                </a>
+            </h3>
+            {% trans 'writes for' %} {% feeds_for_author author %}
+        </p>
+    {% endfor %}
+    {% paginate %}
+</ul>
+{% endblock %}

@@ -14,6 +14,7 @@ urlpatterns = patterns("",
     (r'^grappelli/', include('grappelli_safe.urls')),
     (r'^filebrowser/', include('filebrowser_safe.urls')),
     ("^admin/", include(admin.site.urls)),
+    (r'^planet/', include('planet.urls')),
     url("^$", direct_to_template, {"template": "index.html"}, name="home"),
     ("^", include("mezzanine.urls")),
 )

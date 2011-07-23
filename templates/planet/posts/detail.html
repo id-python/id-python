@@ -1,0 +1,21 @@
+{% extends "planet/base.html" %}
+{% load i18n planet_tags %}
+
+{% block page_title %}{{ post.title|safe }} - {{ block.super }}{% endblock %}
+{% block extrameta %}
+    <meta name="DC.title" content="{{ post.title|safe }} - {{ site.name }}" />
+    <meta name="description" content="{{ post.title|safe }} - {{ site.name }}" />
+{% endblock %}
+
+{% block content %}
+    <div class="post clearfix">
+        {% post_full_details post %}
+        <div class="content">
+            {{ post.content|safe|clean_html }}
+        </div>
+    </div>
+{% endblock %}
+
+{% block right_column %}
+    {% cloud_for_feed post.feed %}
+{% endblock %}

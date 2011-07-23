@@ -1,0 +1,11 @@
+{% load i18n  %}
+{% if related_tags %}
+    <h4>{% trans "Related tags" %}</h4>
+    <ul class="tags related">
+        {% for tag in related_tags %}
+            <li>
+                <a class="tag" href="{% url planet_tag_detail tag.name %}">{{ tag }}</a>
+            </li>
+        {% endfor %}
+    </ul>
+{% endif %}

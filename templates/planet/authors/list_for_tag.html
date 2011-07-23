@@ -1,0 +1,20 @@
+{% extends "planet/base.html" %}
+{% load i18n pagination_tags %}
+
+{% block content %}
+<h2>{% trans 'Authors talking about' %} {{ tag }}</h2>
+<div class="authors">
+    {% autopaginate authors 40 %}
+    {% for author in authors %}
+        <p>
+            <a class="nombre" href="{% url planet_by_tag_author_detail author.pk,tag.name %}" title="{{ author.name }}">
+                {{ author.name }}
+            </a>
+        </p>
+    {% endfor %}
+    {% paginate %}
+</div>
+{% endblock %}
+
+{% block right_column %}
+{% endblock %}

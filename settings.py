@@ -172,6 +172,9 @@ INSTALLED_APPS = (
     "mezzanine.forms",
     "mezzanine.pages",
     "mezzanine.twitter",
+    "pagination",
+    'tagging',
+    "planet",
 )
 
 # List of processors used by RequestContext to populate the context.
@@ -196,6 +199,7 @@ MIDDLEWARE_CLASSES = (
     "mezzanine.core.middleware.DeviceAwareUpdateCacheMiddleware",
     "django.middleware.common.CommonMiddleware",
     #"django.middleware.locale.LocaleMiddleware",
+    'pagination.middleware.PaginationMiddleware',
     "django.middleware.csrf.CsrfViewMiddleware",
     "mezzanine.core.middleware.DeviceAwareFetchFromCacheMiddleware",
     "mezzanine.core.middleware.AdminLoginInterfaceSelector",
@@ -220,6 +224,10 @@ OPTIONAL_APPS = (
 )
 
 DEBUG_TOOLBAR_CONFIG = {"INTERCEPT_REDIRECTS": False}
+
+LANGUAGE_COOKIE_NAME = "planetlng"
+SESSION_COOKIE_NAME = "planetid"
+USER_AGENT = "django-planet/0.1"
 
 
 ##################
